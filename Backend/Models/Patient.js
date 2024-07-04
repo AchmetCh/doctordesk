@@ -12,7 +12,8 @@ const patientSchema = new mongoose.Schema({
     },
     SSN: {
         type: Number,
-        required: true
+        required: true,
+        unique:true
     },
     symptoms:{
         type: String
