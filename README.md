@@ -2,12 +2,12 @@
 
 
 ## Description
-The DoctorDesk App provides Doctors to manage and view their patients' information quickly and efficiently. It displays basic information like name, surname and SSN. It also provides medical information of each patient, like symptoms, allergies, disease history and other. The user can edit/delete patient info and add a new patient as well.
+The DoctorDesk App provides Doctors to manage and view their patients' information quickly and efficiently. It displays basic information like name, surname and SSN. It also provides medical information of each patient, like symptoms, allergies, disease history, diagnosis and other. The user can edit/delete patient info and add a new patient as well.
 
 
 ## Team Members
 - [Kristiana-Hotaj] (https://github.com/krishotaj)
-- [Achmet-Chalsanki(?)] (achmet's github)
+- [Achmet-Chasankil] (https://github.com/AchmetCh)
 - [Celil-Duman] (celil's github)
 
 
@@ -19,7 +19,7 @@ The DoctorDesk App provides Doctors to manage and view their patients' informati
    <!-- * React-Icons ? -->
    * CSS
 - Back-end
-   <!-- * Node.js ? -->
+   * Node js 
    * Nodemon
    * Express
    * MongoDB
@@ -28,7 +28,7 @@ The DoctorDesk App provides Doctors to manage and view their patients' informati
    * JSONWebToken
 
 ## Usage
-1. Open the app and login/sign up.
+1. Open the app and login.
 2. Enter the patient's SSN in the search bar of the main page to find their medical card info.
 3. Click the "Search" button.
 4. The patient's details will be displayed on the screen.
@@ -46,8 +46,8 @@ The DoctorDesk App provides Doctors to manage and view their patients' informati
 
 ## Contact Information
 If you have any questions or issues, feel free to contact us at:
-- **Email**: [kristianahotaj99@gmail.com, (achmet's email), (celil's email)](mailto:[kristianahotaj99@gmail.com), (achmet's email), (celil's email)
-- **GitHub**: [kris_hotaj, (achmet's github), (celil's github)](https://github.com/krishotaj) , (achmet's github), (celil's github)
+- **Email**: [kristianahotaj99@gmail.com,  gigsakos@gmail.com, (celil's email)](mailto:[kristianahotaj99@gmail.com]), ([ gigsakos@gmail.com]), (celil's email)
+- **GitHub**: [kris_hotaj, (AchmetCh), (celil's github)](https://github.com/krishotaj) , (https://github.com/AchmetCh), (celil's github)
 
 ---
 
