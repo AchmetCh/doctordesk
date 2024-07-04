@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({ 
     name: {
-        type: String
+        type: String,
+        require: true
     },
     surname:{
-        type: String
+        type: String,
+        require: true
     },
     SSN: {
         type: Number,
@@ -25,6 +27,9 @@ const patientSchema = new mongoose.Schema({
         type: String
     },
     other: {
+        type: String
+    },
+    diagnosis: {
         type: String
     }
  });
