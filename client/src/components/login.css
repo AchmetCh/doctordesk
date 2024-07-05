@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    margin: 5%;
+}
+.imgForm {
+    place-self: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid black;
+}
+.img {
+
+    
+}
+.img img {
+    height: 400px;
+    width: auto;
+}
+.form form {
+    display: flex;
+    flex-direction: column;
+}
+.form form button {
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    align-self: center;
+    background-color: rgba(16, 133, 243, 0.863);
+    color: white;
+    outline: none;
+    border: none;
+}
+
