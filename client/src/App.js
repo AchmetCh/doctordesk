@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import SearchPatient from './components/SearchPatient';
+import PatientInfo from './components/PatientInfo';
 
 function App() {
   const isLoggedIn = !!localStorage.getItem('token')
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path="/searchpatient" element={<SearchPatient />} />
               <Route index element={<SearchPatient />} />
+              <Route path="/patientinfo" element={<PatientInfo />} />
               {/* Add more routes here */}
             </Routes>
           </>
