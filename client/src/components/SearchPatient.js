@@ -39,6 +39,7 @@
 
 
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SearchPatient = () => {
@@ -46,6 +47,8 @@ const SearchPatient = () => {
   const [patient, setPatient] = useState(null);
   const [allPatient, setAllPatient] = useState(null)
   const apiUrl = 'http://localhost:8000';
+  //kris: adding hook navigate
+  const navigate = useNavigate()
 
   const handleSearch = async () => {
     if (ssn) {
@@ -53,6 +56,8 @@ const SearchPatient = () => {
         const res = await axios.get(`${apiUrl}/api/search/${ssn}`);
         if (res.data) {
           setPatient(res.data);
+          //kris: added navigate hook here
+          navigate(`/edit-patient/${ssn}`)
         } else {
           alert('Patient not found');
         }
@@ -97,7 +102,7 @@ useEffect(() => {
         <div>
           <h2>Patient Found:</h2>
           <div onClick={()=> handleRowClick(patient.SSN)}>
-          <p>SSN: {patient.surname}</p>
+          <p>Surname: {patient.surname}</p>
           <p>Name: {patient.name}</p>
           <p>SSN: {patient.SSN}</p>
           {/* Add more patient details here */}

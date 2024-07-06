@@ -2,10 +2,13 @@
 //patient info: name, surname, SSN, symptoms, allergies, disease history, medications, diagnosis, other
 
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 // import Layout from "./Layout";
 import axios from "axios";
 
 function PatientInfo() {
+  const location = useLocation()
+  const patient = location.state?.patient; //get patient info from patient list page
   const [patientInfo, setPatientInfo] = useState({
     name: "",
     surname: "",
@@ -48,7 +51,7 @@ function PatientInfo() {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`/update/${patientInfo.SSN}`, patientInfo)
+       await axios.put(`/update/${patientInfo.SSN}`, patientInfo)
         console.log("Patient info updated successfully");
     } catch (error) {
       console.log('Update not successful');
@@ -60,7 +63,7 @@ function PatientInfo() {
 
   const handleDelete = async () => {
     try {
-      const res= await axios.delete(`/delete/${patientInfo.SSN}`)
+       await axios.delete(`/delete/${patientInfo.SSN}`)
         console.log("Patient info deleted successfully");
     } catch (error) {
       console.log(error);
@@ -75,7 +78,7 @@ function PatientInfo() {
       <div className="first-card-info">
         <form>
           <label className="patient-name">
-            Name:
+            Name: 
             <input
               type="text"
               name="name"
@@ -104,7 +107,7 @@ function PatientInfo() {
           </label>
 
           <h1 className="h1-patient-med">PATIENT MEDICAL INFORMATION</h1>
-
+      <div className="second-card-info">
           <label className="patient-symptoms">
             Symptoms:
             <textarea
@@ -138,7 +141,7 @@ function PatientInfo() {
             />
           </label>
           <label className="patient-diagnosis">
-            Diagnosis:
+            Diagnosis: 
             <textarea
               name="diagnosis"
               value={patientInfo.diagnosis}
@@ -146,13 +149,14 @@ function PatientInfo() {
             />
           </label>
           <label className="patient-other">
-            Other:
+            Other: 
             <textarea
               name="other"
               value={patientInfo.other}
               onChange={handleInputChange}
             />
           </label>
+          </div>
           <button className="update-btn" onClick={handleUpdate}>
             UPDATE
           </button>
