@@ -67,7 +67,8 @@ const NewPatientForm = () => {
           <div>
             <label>SSN</label>
             <input 
-              type="text" 
+              type="number" 
+              maxLength={10}
               name="SSN" 
               value={formData.SSN} 
               onChange={handleChange} 

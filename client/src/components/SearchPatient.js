@@ -128,6 +128,9 @@ const SearchPatient = () => {
   const handleRowClick = (ssn) => {
     navigate(`/patient/${ssn}`);
   };
+  const NewPatient = () => {
+    navigate(`/createpatient/`);
+  };
 
   const fetchAllPatients = async () => {
     try {
@@ -152,6 +155,7 @@ const SearchPatient = () => {
         onChange={(e) => setSsn(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
+      <button onClick={NewPatient}>New Patient</button>
       {patient && (
         <div>
           <h2>Patient Found:</h2>
