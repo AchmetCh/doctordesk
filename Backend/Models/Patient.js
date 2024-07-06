@@ -24,7 +24,7 @@ const patientSchema = new mongoose.Schema({
     medications: {
         type: String
     },
-    disease_history:{
+    diseasehistory:{
         type: String
     },
     other: {
