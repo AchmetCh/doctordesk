@@ -11,12 +11,19 @@ exports.showAllPatient = async(req, res) => {
 
 exports.createPatient = async (req, res) => {
     try {
+        const SSN = req.body.SSN
+    const existingPatient = await Patient.findOne({ SSN });
+    if (existingPatient) {
+        return res.status(400).json({ message: "Patient already exists" });
+        }
         const patient = await Patient.create(req.body)
         res.status(201).json(patient)
         } catch (error) {
             res.status(500).json(error)
             }
 }
+
+
 
 exports.searchPatient = async (req, res) => {
     try {

@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(32, 172, 237);
+    height: 50px;
+    align-items: center;
+}
+.logo {
+    font-size: 30px;
+    color:white;
+    font-weight: bold;
+}
+.logoutBtn {
+    background-color: rgb(243, 61, 21);
+    color: white;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+.logoutBtn:hover {
+    cursor: pointer;
+    background-color: rgb(189, 55, 25);
+}
