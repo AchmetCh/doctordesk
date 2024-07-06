@@ -19,8 +19,9 @@ function App() {
             <Routes>
               <Route path="/searchpatient" element={<SearchPatient />} />
               <Route path="/patientinfo" element={<PatientInfo />} />
+              <Route path="/patient/:ssn" element={<PatientInfo />} />
               <Route path="/createpatient" element={<NewPatientForm />} /> {/* NewPatientForm rotası eklendi */}
-              <Route index element={<SearchPatient />} />
+              <Route index element={<SearchPatient />} /
               {/* Add more routes here */}
             </Routes>
           </>
