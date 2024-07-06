@@ -19,6 +19,7 @@ function PatientInfo() {
   });
   const apiUrl = 'http://localhost:8000';
   const ToastSuccessful = () => toast("Update Successful!");
+  const DeleteSuccessful = () => toast("Delete Successful!");
 
   useEffect(() => {
     const fetchPatientInfo = async () => {
@@ -33,20 +34,14 @@ function PatientInfo() {
     fetchPatientInfo();
   }, [ssn]);
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setPatientInfo((prevPatientInfo) => ({
-  //     ...prevPatientInfo,
-  //     [name]: value,
-  //   }));
-  // };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPatientInfo((prevPatientInfo) => ({
-     ...prevPatientInfo,
-      [name]: event.target.type === 'textarea'? event.target.value.trim() : value,
+      ...prevPatientInfo,
+      [name]: value,
     }));
   };
+
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -60,15 +55,18 @@ function PatientInfo() {
     }
   };
 
+
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(`${apiUrl}/api/delete/${patientInfo.SSN}`);
-      console.log("Patient info deleted successfully");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+      await axios.delete(`${apiUrl}/api/delete/${patientInfo.SSN}`)
+      console.log("Patient info delete successfully");
+      DeleteSuccessful()
+      setTimeout(() => window.location.href = '/searchPatient', 1000);
+      } catch (error) {
+        console.log('Delete not successful');
+        }
+  }
 
   return (
     <div className="container">
