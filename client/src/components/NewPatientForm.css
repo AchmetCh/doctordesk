@@ -60,4 +60,66 @@
   form button:hover {
     background-color: #0056b3;
   }
+  /* General container styling */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    margin-top:50px;
+  }
+  
+  /* Card styling */
+  .form-card {
+    background-color: #40e0d0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Increased width */
+  }
+  
+  /* Form styling */
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  form input, form textarea {
+    width: calc(70% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
+  /* Label styling */
+  form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Symptoms and other fields grid styling */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  /* Submit button styling */
+  form button {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto; /* Centers the button */
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
   
