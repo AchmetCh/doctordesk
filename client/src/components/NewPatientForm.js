@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './NavBar';
-import './NewPatientForm.css'
+import './NewPatientForm.css';
+
 const NewPatientForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -28,17 +31,18 @@ const NewPatientForm = () => {
     try {
       const response = await axios.post('http://localhost:8000/api/create', formData);
       if (response.status === 201) {
-        alert('Patient created successfully');
+        toast.success('Patient created successfully');
         navigate('/searchPatient');
       }
     } catch (error) {
       console.error(error);
-      alert('Failed to create patient');
+      toast.error('Failed to create patient');
     }
   };
 
   return (
     <div className="form-container">
+      <ToastContainer /> {/* Toast mesajlarını göstermek için ToastContainer bileşeni */}
       <div className="form-card">
         <h1>Create New Patient</h1>
         <form onSubmit={handleSubmit}>
@@ -68,6 +72,8 @@ const NewPatientForm = () => {
             <label>SSN</label>
             <input 
               type="text" 
+              pattern="[0-9]*" /* only numbers input */
+              maxLength={10}
               name="SSN" 
               value={formData.SSN} 
               onChange={handleChange} 

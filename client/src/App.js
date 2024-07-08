@@ -19,7 +19,8 @@ function App() {
             <Routes>
               <Route path="/searchpatient" element={<SearchPatient />} />
               <Route path="/patientinfo" element={<PatientInfo />} />
-              <Route path="/createpatient" element={<NewPatientForm />} /> {/* NewPatientForm rotası eklendi */}
+              <Route path="/patient/:ssn" element={<PatientInfo />} />
+              <Route path="/createpatient" element={<NewPatientForm />} /> 
               <Route index element={<SearchPatient />} />
               {/* Add more routes here */}
             </Routes>

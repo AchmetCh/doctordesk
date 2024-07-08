@@ -1,39 +1,38 @@
-//update, delete, onChange, display all patient info
-//patient info: name, surname, SSN, symptoms, allergies, disease history, medications, diagnosis, other
-
 import React, { useState, useEffect } from "react";
-// import Layout from "./Layout";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function PatientInfo() {
+  const { ssn } = useParams();
   const [patientInfo, setPatientInfo] = useState({
     name: "",
     surname: "",
     SSN: "",
     symptoms: "",
     allergies: "",
-    diseaseHistory: "",
+    diseasehistory: "",
     medications: "",
     diagnosis: "",
     other: "",
   });
-
-
+  const apiUrl = 'http://localhost:8000';
+  const ToastSuccessful = () => toast("Update Successful!");
+  const DeleteSuccessful = () => toast("Delete Successful!");
 
   useEffect(() => {
-    const fetchPatientInfo = async () =>{
-    try {
-      const res = await axios.get(`/update/${patientInfo.SSN}`)
+    const fetchPatientInfo = async () => {
+      try {
+        const res = await axios.get(`${apiUrl}/api/search/${ssn}`);
         setPatientInfo(res.data);
-    } catch (error) {
-      console.log('Patient not found');
-    }
-}
-    fetchPatientInfo()
-  }, [patientInfo.SSN]);
-
-
-
+        console.log((res.data));
+      } catch (error) {
+        console.log('Patient not found');
+      }
+    };
+    fetchPatientInfo();
+  }, [ssn]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -44,31 +43,30 @@ function PatientInfo() {
   };
 
 
-
-
-  const handleUpdate = async () => {
+  const handleUpdate = async (event) => {
+    event.preventDefault();
     try {
-      const res = await axios.put(`/update/${patientInfo.SSN}`, patientInfo)
-        console.log("Patient info updated successfully");
+      await axios.put(`${apiUrl}/api/update/${patientInfo.SSN}`, patientInfo);
+      console.log("Patient info updated successfully");
+      ToastSuccessful()
+      setTimeout(() => window.location.href = '/searchPatient', 1000);
     } catch (error) {
       console.log('Update not successful');
     }
   };
 
 
-
-
-  const handleDelete = async () => {
+  const handleDelete = async (event) => {
+    event.preventDefault();
     try {
-      const res= await axios.delete(`/delete/${patientInfo.SSN}`)
-        console.log("Patient info deleted successfully");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-
+      await axios.delete(`${apiUrl}/api/delete/${patientInfo.SSN}`)
+      console.log("Patient info delete successfully");
+      DeleteSuccessful()
+      setTimeout(() => window.location.href = '/searchPatient', 1000);
+      } catch (error) {
+        console.log('Delete not successful');
+        }
+  }
 
   return (
     <div className="container">
@@ -124,8 +122,8 @@ function PatientInfo() {
           <label className="patient-disease-history">
             Disease History:
             <textarea
-              name="diseaseHistory"
-              value={patientInfo.diseaseHistory}
+              name="diseasehistory"
+              value={patientInfo.diseasehistory}
               onChange={handleInputChange}
             />
           </label>
@@ -161,8 +159,10 @@ function PatientInfo() {
           </button>
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 }
 
 export default PatientInfo;
+

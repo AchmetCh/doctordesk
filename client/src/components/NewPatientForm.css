@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f8ff;
-    margin-top:50px;
+    margin-top:100px;
+    margin-bottom: 100px;
   }
   
   /* Card styling */
@@ -25,7 +25,7 @@
   }
   
   form input, form textarea {
-    width: calc(100% - 20px);
+    width: calc(70% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
