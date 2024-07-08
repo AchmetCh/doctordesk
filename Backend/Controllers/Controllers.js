@@ -56,9 +56,10 @@ exports.deletePatient = async (req,res) => {
     try {
         const SSN = req.params.ssn
         const patient = await Patient.findOneAndDelete({ SSN })
-        if (!patient) return res.status(404).send({ message: "Patient not found"})
-            res.status(200).send('Patient deleted successfully', patient)
+        if (!patient) return res.status(404).json({ message: "Patient not found"})
+            res.status(200).json({msg: 'Patient deleted successfully', patient})
         } catch (error) {
+            console.log(error);
             res.status(500).json({ message: error.message })
             }
 }
