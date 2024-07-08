@@ -27,10 +27,13 @@ const NewPatientForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const apiUrl = 'http://localhost:8000';
+  const apiOnline = 'https://doctordesk.onrender.com'
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/create', formData);
+      const response = await axios.post(`${apiOnline}/api/create`, formData);
       if (response.status === 201) {
         ToastSuccessful()
         setTimeout(() =>navigate('/searchPatient', 2000));
