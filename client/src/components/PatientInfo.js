@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import './../../src/components/PatientInfo.css'
 
 function PatientInfo() {
   const { ssn } = useParams();
@@ -71,86 +72,89 @@ function PatientInfo() {
   return (
     <div className="container">
       <div className="first-card-info">
-        <form>
-          <label className="patient-name">
-            Name: 
-            <input
+        <form >
+          <div className="patient-name">
+            NAME: 
+            <input className="patient-name-input"
               type="text"
               name="name"
               value={patientInfo.name}
               onChange={handleInputChange}
             />
-          </label>
+          </div>
 
-          <label className="patient-surname">
-            Surname:
-            <input
+          <div className="patient-surname">
+            SURNAME:
+            <input className="patient-surname-input"
               type="text"
               name="surname"
               value={patientInfo.surname}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-ssn">
+          </div>
+          <div className="patient-ssn">
             SSN:
-            <input
+            <input 
               type="text"
               name="SSN"
               value={patientInfo.SSN}
               onChange={handleInputChange}
             />
-          </label>
-
+          </div>
+          </form>
+          </div>
           <h1 className="h1-patient-med">PATIENT MEDICAL INFORMATION</h1>
       <div className="second-card-info">
-          <label className="patient-symptoms">
-            Symptoms:
+        <form>
+          <div className="patient-symptoms">
+            SYMPTOMS:
             <textarea
               name="symptoms"
               value={patientInfo.symptoms}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-allergies">
-            Allergies:
+          </div>
+          <div className="patient-allergies">
+            ALLERGIES:
             <textarea
               name="allergies"
               value={patientInfo.allergies}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-disease-history">
-            Disease History:
+          </div>
+          <div className="patient-disease-history">
+            DISEASE HISTORY:
             <textarea
               name="diseasehistory"
               value={patientInfo.diseasehistory}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-medications">
-            Medications:
+          </div>
+          <div className="patient-medications">
+            MEDICATIONS:
             <textarea
               name="medications"
               value={patientInfo.medications}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-diagnosis">
-            Diagnosis: 
+          </div>
+          <div className="patient-diagnosis">
+            DIAGNOSIS: 
             <textarea
               name="diagnosis"
               value={patientInfo.diagnosis}
               onChange={handleInputChange}
             />
-          </label>
-          <label className="patient-other">
-            Other: 
+          </div>
+          <div className="patient-other">
+            OTHER: 
             <textarea
               name="other"
               value={patientInfo.other}
               onChange={handleInputChange}
             />
-          </label>
+          </div>
+          </form>
           </div>
           <button className="update-btn" onClick={handleUpdate}>
             UPDATE
@@ -158,8 +162,8 @@ function PatientInfo() {
           <button className="delete-btn" onClick={handleDelete}>
             DELETE
           </button>
-        </form>
-      </div>
+        
+      
       <ToastContainer/>
     </div>
   );

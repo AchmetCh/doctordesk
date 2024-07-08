@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import './NewPatientForm.css'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 const NewPatientForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -17,7 +20,8 @@ const NewPatientForm = () => {
   });
 
   const navigate = useNavigate();
-
+  const ToastSuccessful = () => toast("Patient created Successful!");
+  const ToastNotCreated = () => toast("Patient Failed to create!");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -28,12 +32,12 @@ const NewPatientForm = () => {
     try {
       const response = await axios.post('http://localhost:8000/api/create', formData);
       if (response.status === 201) {
-        alert('Patient created successfully');
-        navigate('/searchPatient');
+        ToastSuccessful()
+        setTimeout(() =>navigate('/searchPatient', 2000));
       }
     } catch (error) {
       console.error(error);
-      alert('Failed to create patient');
+      ToastNotCreated()
     }
   };
 
@@ -135,6 +139,7 @@ const NewPatientForm = () => {
           <button type="submit">Create Patient</button>
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
