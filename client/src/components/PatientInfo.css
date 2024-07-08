@@ -1,0 +1,153 @@
+/* container */
+/* first-card-info */
+/* patient-name, patient-surname, patient-ssn*/
+/* h1-patient-med */
+/* second-card-info */
+/* patient-symptoms, patient-allergies, patient-medications */
+/* patient-disease-history, patient-diagnosis, patient-other */
+/* update-btn, delete-btn */
+.container{
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 90%;
+}
+
+.first-card-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 120px solid #1C9EAF;
+    width: 70;
+    height: 70px;
+    padding: 0px;
+    
+}
+
+.patient-name, .patient-ssn, .patient-surname{
+    font-size: 20px;
+    color: #D9D9D9;
+    font-weight: lighter;
+    text-align: center;
+    align-content: center;
+    background-color: #1C9EAF;
+    position: static;
+}
+
+
+
+
+
+input{
+    background-color: #D9D9D9 ;
+}
+
+
+textarea{
+    height: 70px;
+    background-color:#D9D9D9;
+}
+
+
+.h1-patient-med{
+    font-size: 20px;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #1C9EAF;
+    padding: 10px;
+    margin: 70px;
+    width: 55%;
+    text-align: center;
+    color: #FFFFFF
+    
+}
+
+ 
+  .second-card-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: start;
+    width: 1000px;
+    padding: 40px;
+    background-color: #D9D9D9;
+  }
+  
+  .patient-symptoms,
+  .patient-allergies,
+  .patient-medications,
+  .patient-disease-history,
+  .patient-diagnosis,
+  .patient-other {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color:#FFFFFF;
+    border-radius: 5px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+  }
+  
+  .patient-symptoms {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: #1C9EAF;
+  }
+  
+  .patient-allergies {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background-color: #1C9EAF;
+  }
+  
+  .patient-medications {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    background-color: #1C9EAF;
+  }
+  
+  .patient-disease-history {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: #1C9EAF;
+  }
+  
+  .patient-diagnosis {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: #1C9EAF;
+  }
+  
+  .patient-other {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background-color: #1C9EAF;
+  } 
+
+ 
+
+  .update-btn {
+    margin-right: 200px;
+    margin-top: 40px;
+    position: relative;
+    width: 150px;
+    background-color: #1C9EAF;
+}
+
+.delete-btn{
+    margin-left: 300px;
+    margin-right: 0;
+    position: relative;
+    top : -38px;
+    width: 150px;
+    background-color: red;
+}
+
+
+  
