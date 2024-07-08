@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar';
-import './NewPatientForm.css'
-import {ToastContainer, toast} from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NavBar from './NavBar';
+import './NewPatientForm.css';
 
 const NewPatientForm = () => {
   const [formData, setFormData] = useState({
@@ -20,37 +20,39 @@ const NewPatientForm = () => {
   });
 
   const navigate = useNavigate();
-  const ToastSuccessful = () => toast("Patient created Successful!");
+  const ToastSuccessful = () => toast("Patient created Successfully!");
   const ToastNotCreated = () => toast("Patient Failed to create!");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const apiUrl = 'http://localhost:8000';
-  const apiOnline = 'https://doctordesk.onrender.com'
+  const apiOnline = 'https://doctordesk.onrender.com';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(`${apiOnline}/api/create`, formData);
       if (response.status === 201) {
-        ToastSuccessful()
-        setTimeout(() =>navigate('/searchPatient', 2000));
+        ToastSuccessful();
+        navigate('/searchPatient');
       }
     } catch (error) {
       console.error(error);
-      ToastNotCreated()
+      ToastNotCreated();
     }
   };
 
   return (
     <div className="form-container">
+      <ToastContainer /> {/* Toast mesajlarını göstermek için ToastContainer bileşeni */}
       <div className="form-card">
-        <h1>Create New Patient</h1>
+        <div className="form-header">Create New Patient</div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Name</label>
+            <label htmlFor="name">Name</label>
             <input 
               type="text" 
               name="name" 
@@ -61,7 +63,7 @@ const NewPatientForm = () => {
             />
           </div>
           <div>
-            <label>Surname</label>
+            <label htmlFor="surname">Surname</label>
             <input 
               type="text" 
               name="surname" 
@@ -72,9 +74,10 @@ const NewPatientForm = () => {
             />
           </div>
           <div>
-            <label>SSN</label>
+            <label htmlFor="ssn">SSN</label>
             <input 
-              type="number" 
+              type="text" 
+              pattern="[0-9]*" /* only numbers input */
               maxLength={10}
               name="SSN" 
               value={formData.SSN} 
@@ -85,7 +88,7 @@ const NewPatientForm = () => {
           </div>
           <div className="form-grid">
             <div>
-              <label>Symptoms</label>
+              <label htmlFor="symptoms">Symptoms</label>
               <textarea 
                 name="symptoms" 
                 value={formData.symptoms} 
@@ -94,7 +97,7 @@ const NewPatientForm = () => {
               />
             </div>
             <div>
-              <label>Allergies</label>
+              <label htmlFor="allergies">Allergies</label>
               <textarea 
                 name="allergies" 
                 value={formData.allergies} 
@@ -103,7 +106,7 @@ const NewPatientForm = () => {
               />
             </div>
             <div>
-              <label>Medications</label>
+              <label htmlFor="medications">Medications</label>
               <textarea 
                 name="medications" 
                 value={formData.medications} 
@@ -112,7 +115,7 @@ const NewPatientForm = () => {
               />
             </div>
             <div>
-              <label>Disease History</label>
+              <label htmlFor="disease_history">Disease History</label>
               <textarea 
                 name="disease_history" 
                 value={formData.disease_history} 
@@ -121,7 +124,7 @@ const NewPatientForm = () => {
               />
             </div>
             <div>
-              <label>Diagnosis</label>
+              <label htmlFor="diagnosis">Diagnosis</label>
               <textarea 
                 name="diagnosis" 
                 value={formData.diagnosis} 
@@ -130,7 +133,7 @@ const NewPatientForm = () => {
               />
             </div>
             <div>
-              <label>Other</label>
+              <label htmlFor="other">Other</label>
               <textarea 
                 name="other" 
                 value={formData.other} 
@@ -142,7 +145,7 @@ const NewPatientForm = () => {
           <button type="submit">Create Patient</button>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
