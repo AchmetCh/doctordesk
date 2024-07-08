@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './NavBar';
-import './NewPatientForm.css';
-
+import './NewPatientForm.css'
 const NewPatientForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,23 +19,27 @@ const NewPatientForm = () => {
   });
 
   const navigate = useNavigate();
-
+  const ToastSuccessful = () => toast("Patient created Successful!");
+  const ToastNotCreated = () => toast("Patient Failed to create!");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const apiUrl = 'http://localhost:8000';
+  const apiOnline = 'https://doctordesk.onrender.com'
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/create', formData);
+      const response = await axios.post(`${apiOnline}/api/create`, formData);
       if (response.status === 201) {
-        toast.success('Patient created successfully');
+        alert('Patient created successfully');
         navigate('/searchPatient');
       }
     } catch (error) {
       console.error(error);
-      toast.error('Failed to create patient');
+      alert('Failed to create patient');
     }
   };
 
@@ -140,6 +143,7 @@ const NewPatientForm = () => {
           <button type="submit">Create Patient</button>
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
