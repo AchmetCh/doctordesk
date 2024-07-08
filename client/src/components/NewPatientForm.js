@@ -37,7 +37,7 @@ const NewPatientForm = () => {
       const response = await axios.post(`${apiOnline}/api/create`, formData);
       if (response.status === 201) {
         ToastSuccessful();
-        navigate('/searchPatient');
+        setTimeout(() =>navigate('/searchPatient'), 2000);
       }
     } catch (error) {
       console.error(error);
@@ -53,6 +53,7 @@ const NewPatientForm = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name</label>
+            <br/>
             <input 
               type="text" 
               name="name" 
@@ -64,6 +65,7 @@ const NewPatientForm = () => {
           </div>
           <div>
             <label htmlFor="surname">Surname</label>
+            <br/>
             <input 
               type="text" 
               name="surname" 
@@ -75,6 +77,7 @@ const NewPatientForm = () => {
           </div>
           <div>
             <label htmlFor="ssn">SSN</label>
+            <br/>
             <input 
               type="text" 
               pattern="[0-9]*" /* only numbers input */

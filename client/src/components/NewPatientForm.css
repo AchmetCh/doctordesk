@@ -1,4 +1,7 @@
-/* General container styling */
+General container styling
+.container {
+  display: grid;
+}
 .form-container {
   display: flex;
   justify-content: center;
@@ -55,7 +58,9 @@ form input, form textarea {
   box-sizing: border-box;
   background-color: #ffffff; /* White background for inputs */
 }
-
+.form-card input {
+  width: 300px !important;
+}
 /* Label styling */
 form label {
   font-weight: bold;

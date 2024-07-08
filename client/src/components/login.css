@@ -30,7 +30,8 @@
     border: none;
 }
 form input {
-    width: 80% !important;
+    width: 200px !important;
+    margin: 0 20px 2px 10px;
     background-color: rgb(229, 228, 228);
 }
 
