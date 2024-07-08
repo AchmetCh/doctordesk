@@ -1,125 +1,107 @@
 /* General container styling */
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-top:100px;
-    margin-bottom: 100px;
-  }
-  
-  /* Card styling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px; /* Margin for the navbar */
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Card styling */
+.form-card {
+  background-color: #1C9EAF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Form header styling */
+.form-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #ffffff; /* White background for inputs */
+}
+
+/* Label styling */
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Symptoms and other fields grid styling */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Submit button styling */
+form button {
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #0c474f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto; /* Centers the button */
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .form-card {
-    background-color: #40e0d0;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 600px; /* Increased width */
+      width: 100%;
+      padding: 10px;
   }
-  
-  /* Form styling */
-  form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
+
   form input, form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 0 auto;
+      width: 100%;
   }
-  
-  /* Label styling */
+
   form label {
-    font-weight: bold;
-    margin-bottom: 5px;
+      width: 100%;
   }
-  
-  /* Symptoms and other fields grid styling */
+
   .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+      width: 100%;
   }
-  
-  /* Submit button styling */
-  form button {
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto; /* Centers the button */
-  }
-  
-  form button:hover {
-    background-color: #0056b3;
-  }
-  /* General container styling */
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f8ff;
-    margin-top:50px;
-  }
-  
-  /* Card styling */
-  .form-card {
-    background-color: #40e0d0;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 600px; /* Increased width */
-  }
-  
-  /* Form styling */
-  form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  form input, form textarea {
-    width: calc(70% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 0 auto;
-  }
-  
-  /* Label styling */
-  form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Symptoms and other fields grid styling */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  /* Submit button styling */
-  form button {
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto; /* Centers the button */
-  }
-  
-  form button:hover {
-    background-color: #0056b3;
-  }
-  
+}
