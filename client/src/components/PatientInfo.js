@@ -73,12 +73,11 @@ function PatientInfo() {
 
   return (
     <div className="container">
-      
-        <form>
+      <form>
         <header className="first-card-info">
           <div className="patient-name">
             NAME:
-            <br/>
+            <br />
             <input
               className="patient-name-input input"
               type="text"
@@ -90,8 +89,9 @@ function PatientInfo() {
 
           <div className="patient-surname">
             SURNAME:
-            <br/>
-            <input className="patient-surname-input input"
+            <br />
+            <input
+              className="patient-surname-input input"
               type="text"
               name="surname"
               value={patientInfo.surname}
@@ -100,20 +100,22 @@ function PatientInfo() {
           </div>
           <div className="patient-ssn">
             SSN:
-            <br/>
-            <input className="patient-ssn-input input"
+            <br />
+            <input
+              className="patient-ssn-input input"
               type="text"
               name="SSN"
               value={patientInfo.SSN}
               onChange={handleInputChange}
             />
           </div>
-          </header>
-        </form>
-      
+        </header>
+      </form>
+
       <h1 className="h1-patient-med">PATIENT MEDICAL INFORMATION</h1>
-      <div className="second-card-info">
-        <form>
+
+      <form>
+        <main className="second-card-info">
           <div className="patient-symptoms">
             SYMPTOMS:
             <textarea
@@ -156,15 +158,16 @@ function PatientInfo() {
           </div>
           <div className="patient-other">
             OTHER:
-            <br/>
+            <br />
             <textarea
               name="other"
               value={patientInfo.other}
               onChange={handleInputChange}
             />
           </div>
-        </form>
-      </div>
+        </main>
+      </form>
+
       <button className="update-btn" onClick={handleUpdate}>
         UPDATE
       </button>

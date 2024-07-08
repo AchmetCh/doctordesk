@@ -27,7 +27,7 @@ const Login = () => {
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         ToastSuccessful();
-        setTimeout(() => window.location.href = '/searchpatient', 1000);
+        setTimeout(() => window.location.href = '/', 1000);
       } else {
         ToastFailed();
       }
