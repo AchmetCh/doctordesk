@@ -81,7 +81,7 @@ const NewPatientForm = () => {
             <input 
               type="text" 
               pattern="[0-9]*" /* only numbers input */
-              maxLength={10}
+              maxLength={11}
               name="SSN" 
               value={formData.SSN} 
               onChange={handleChange} 
