@@ -18,13 +18,14 @@ function PatientInfo() {
     other: "",
   });
   const apiUrl = 'http://localhost:8000';
+  const apiOnline = 'https://doctordesk.onrender.com'
   const ToastSuccessful = () => toast("Update Successful!");
   const DeleteSuccessful = () => toast("Delete Successful!");
 
   useEffect(() => {
     const fetchPatientInfo = async () => {
       try {
-        const res = await axios.get(`${apiUrl}/api/search/${ssn}`);
+        const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
         setPatientInfo(res.data);
         console.log((res.data));
       } catch (error) {
@@ -46,7 +47,7 @@ function PatientInfo() {
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      await axios.put(`${apiUrl}/api/update/${patientInfo.SSN}`, patientInfo);
+      await axios.put(`${apiOnline}/api/update/${patientInfo.SSN}`, patientInfo);
       console.log("Patient info updated successfully");
       ToastSuccessful()
       setTimeout(() => window.location.href = '/searchPatient', 1000);
@@ -59,7 +60,7 @@ function PatientInfo() {
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(`${apiUrl}/api/delete/${patientInfo.SSN}`)
+      await axios.delete(`${apiOnline}/api/delete/${patientInfo.SSN}`)
       console.log("Patient info delete successfully");
       DeleteSuccessful()
       setTimeout(() => window.location.href = '/searchPatient', 1000);

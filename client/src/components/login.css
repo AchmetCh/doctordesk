@@ -8,11 +8,9 @@
     align-items: center;
     justify-items: center;
     border: 1px solid black;
+    flex-wrap: wrap;
 }
-.img {
 
-    
-}
 .img img {
     height: 400px;
     width: auto;
@@ -26,9 +24,13 @@
     height: 30px;
     margin-top: 10px;
     align-self: center;
-    background-color: rgba(16, 133, 243, 0.863);
+    background-color: #1C9EAF;
     color: white;
     outline: none;
     border: none;
+}
+form input {
+    width: 80% !important;
+    background-color: rgb(229, 228, 228);
 }
 

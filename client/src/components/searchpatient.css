@@ -1,7 +1,38 @@
-
-  div {
+.body {
+  background-color: rgb(249, 250, 245);
+}
+ search {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 5% 0 0 30% ;
+  }
+  main {
+    margin: 0 0 0 10%;
+  }
+  main h2 {
+   margin: 5% 0 2% 30%;
+   border: 1px solid rgb(55, 54, 54);
+   width: 20%;
+   text-align: center;
+   border-radius: 10px;
+   background-color: #1C9EAF;
+   color: white;
+   font-weight: bold;
+  }
+  .newpatientBtn {
+    margin: 0 0 0 2%;
+    background-color: #1C9EAF;
+    font-weight: bold;
+    height: 40px;
+    width: 150px;
+  }
+  .searchBtn {
+    background-color: #525252;
+    font-weight: bold;
+    height: 40px;
+    width: 150px;
   }
   
   input[type="text"] {
@@ -16,7 +47,7 @@
   button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #1C9EAF;
     color: white;
     border: none;
     border-radius: 5px;
@@ -59,7 +90,7 @@
   }
   
   thead {
-    background-color: #007bff;
+    background-color: #1C9EAF;
     color: white;
   }
   

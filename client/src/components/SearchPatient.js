@@ -8,12 +8,13 @@ const SearchPatient = () => {
   const [patient, setPatient] = useState(null);
   const [allPatients, setAllPatients] = useState([]);
   const apiUrl = 'http://localhost:8000';
+  const apiOnline = 'https://doctordesk.onrender.com'
   const navigate = useNavigate();
 
   const handleSearch = async () => {
     if (ssn) {
       try {
-        const res = await axios.get(`${apiUrl}/api/search/${ssn}`);
+        const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
         if (res.data) {
           setPatient(res.data);
           navigate(`/patient/${ssn}`);
@@ -36,7 +37,7 @@ const SearchPatient = () => {
 
   const fetchAllPatients = async () => {
     try {
-      const res = await axios.get(`${apiUrl}/api/patient`);
+      const res = await axios.get(`${apiOnline}/api/patient`);
       setAllPatients(res.data);
     } catch (error) {
       console.error('Error fetching patients:', error);
@@ -49,18 +50,20 @@ const SearchPatient = () => {
   }, []);
 
   return (
-    <div>
+    <div className='body'>
+      <search>
       <input
         type="text"
         placeholder="Search SSN..."
         value={ssn}
         onChange={(e) => setSsn(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={NewPatient}>New Patient</button>
+      <button className='searchBtn' onClick={handleSearch}>Search</button>
+      <button className='newpatientBtn' onClick={NewPatient}>+New Patient</button>
+      </search>
+      <main>
       {patient && (
         <div>
-          <h2>Patient Found:</h2>
           <div onClick={() => handleRowClick(patient.SSN)} className="searchbox">
             <p>SSN: {patient.SSN}</p>
             <p>Name: {patient.name}</p>
@@ -89,6 +92,7 @@ const SearchPatient = () => {
           </tbody>
         </table>
       </div>
+      </main>
     </div>
   );
 };
