@@ -16,6 +16,7 @@ function App() {
         {isLoggedIn ? (
           <>
             <NavBar className="layout" />
+            
             <Routes>
               <Route path="/searchpatient" element={<SearchPatient />} />
               <Route path="/patientinfo" element={<PatientInfo />} />
@@ -24,12 +25,15 @@ function App() {
               <Route index element={<SearchPatient />} />
               {/* Add more routes here */}
             </Routes>
+            
           </>
         ) : (
+          
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          
         )}
       </div>
     </Router>
