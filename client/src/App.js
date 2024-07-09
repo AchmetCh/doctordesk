@@ -23,7 +23,6 @@ function App() {
               <Route path="/patient/:ssn" element={<PatientInfo />} />
               <Route path="/createpatient" element={<NewPatientForm />} /> 
               <Route index element={<SearchPatient />} />
-              {/* Add more routes here */}
             </Routes>
             
           </>
