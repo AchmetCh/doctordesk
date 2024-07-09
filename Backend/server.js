@@ -5,10 +5,15 @@ const patientRoutes = require("./Routes/Routes");
 const connection = require("./Config/Connection");
 const app = express();
 const port = 8000;
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'build')))
 const cors = require("cors");
 app.use(cors({ origin: "*" }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 
 app.use("/api", patientRoutes);
 
