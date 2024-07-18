@@ -8,15 +8,13 @@ The DoctorDesk App provides Doctors to manage and view their patients' informati
 ## Team Members
 - [Kristiana-Hotaj] (https://github.com/krishotaj)
 - [Achmet-Chasankil] (https://github.com/AchmetCh)
-- [Celil-Duman] (celil's github)
+- [Celil-Duman] ([celil's github](https://github.com/dumancelil))
 
 
 ## Technologies Used
 - Front-end
    * React
    * React-Router
-   <!-- * React-Bootstrap ? -->
-   <!-- * React-Icons ? -->
    * CSS
 - Back-end
    * Node js 
@@ -41,13 +39,13 @@ The DoctorDesk App provides Doctors to manage and view their patients' informati
   for guiding us and helping us solve any obstacle and queries 
   we had during the development of this project.
 
-
-
+## Online
+-[DoctorDesk] (https://team1.shaheroes.online/)
 
 ## Contact Information
 If you have any questions or issues, feel free to contact us at:
-- **Email**: [kristianahotaj99@gmail.com,  gigsakos@gmail.com, (celil's email)](mailto:[kristianahotaj99@gmail.com]), ([ gigsakos@gmail.com]), (celil's email)
-- **GitHub**: [kris_hotaj, (AchmetCh), (celil's github)](https://github.com/krishotaj) , (https://github.com/AchmetCh), (celil's github)
+- **Email**: [kristianahotaj99@gmail.com,  gigsakos@gmail.com, tgmcelilduman@gmail.com](mailto: [kristianahotaj99@gmail.com]), ([gigsakos@gmail.com]), ([tgmcelilduman@gmail.com])
+- **GitHub**: [kris_hotaj, (AchmetCh), (dumancelil)](https://github.com/krishotaj) , (https://github.com/AchmetCh), (https://github.com/dumancelil)
 
 ---
 
