@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../../src/components/PatientInfo.css";
 
 function PatientInfo() {
+  const navigate = useNavigate();
   const { ssn } = useParams();
   const [patientInfo, setPatientInfo] = useState({
     name: "",
@@ -22,7 +23,6 @@ function PatientInfo() {
   const apiOnline = "https://doctordesk.onrender.com";
   const ToastSuccessful = () => toast("Update Successful!");
   const DeleteSuccessful = () => toast("Delete Successful!");
-
   useEffect(() => {
     const fetchPatientInfo = async () => {
       try {
@@ -53,7 +53,10 @@ function PatientInfo() {
       );
       console.log("Patient info updated successfully");
       ToastSuccessful();
-      setTimeout(() => (window.location.href = "/searchPatient"), 1000);
+      setTimeout(() => {
+        navigate("/searchpatient");
+      }, 1000); 
+      // setTimeout(() => (window.location.href = "/searchPatient"), 1000);
     } catch (error) {
       console.log("Update not successful");
     }
@@ -65,7 +68,10 @@ function PatientInfo() {
       await axios.delete(`${apiOnline}/api/delete/${patientInfo.SSN}`);
       console.log("Patient info delete successfully");
       DeleteSuccessful();
-      setTimeout(() => (window.location.href = "/searchPatient"), 1000);
+      setTimeout(() => {
+        navigate("/searchpatient");
+      }, 1000); 
+      // setTimeout(() => (window.location.href = "/searchpatient"), 1000);
     } catch (error) {
       console.log("Delete not successful");
     }
