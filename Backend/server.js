@@ -9,6 +9,7 @@ const cors = require("cors");
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use("/api", patientRoutes);
+
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('*', (req, res) => {
