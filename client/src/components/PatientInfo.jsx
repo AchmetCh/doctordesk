@@ -28,7 +28,6 @@ function PatientInfo() {
       try {
         const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
         setPatientInfo(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log("Patient not found");
       }
@@ -55,7 +54,7 @@ function PatientInfo() {
       ToastSuccessful();
       setTimeout(() => {
         navigate("/searchpatient");
-      }, 1000); 
+      }, 1000);
       // setTimeout(() => (window.location.href = "/searchPatient"), 1000);
     } catch (error) {
       console.log("Update not successful");
@@ -70,20 +69,24 @@ function PatientInfo() {
       DeleteSuccessful();
       setTimeout(() => {
         navigate("/searchpatient");
-      }, 1000); 
+      }, 1000);
       // setTimeout(() => (window.location.href = "/searchpatient"), 1000);
     } catch (error) {
       console.log("Delete not successful");
     }
   };
+  const AddDateOnClick = () => {
+    const today = new Date().toDateString(); // e.g., "7/8/2025"
+    const updatedText = `${patientInfo.symptoms}\nDate: ${today} `;
+    setPatientInfo({ ...patientInfo, symptoms: updatedText });
+  };
 
   return (
-    <div className="container">
-      <form>
+    <div className="patientInfo-container">
+      <form className="patient-info-form">
         <header className="first-card-info">
-          <div className="patient-name">
+          <label className="patient-name">
             NAME:
-            <br />
             <input
               className="patient-name-input input"
               type="text"
@@ -91,11 +94,10 @@ function PatientInfo() {
               value={patientInfo.name}
               onChange={handleInputChange}
             />
-          </div>
+          </label>
 
-          <div className="patient-surname">
+          <label className="patient-surname">
             SURNAME:
-            <br />
             <input
               className="patient-surname-input input"
               type="text"
@@ -103,10 +105,10 @@ function PatientInfo() {
               value={patientInfo.surname}
               onChange={handleInputChange}
             />
-          </div>
-          <div className="patient-ssn">
+          </label>
+
+          <label className="patient-ssn">
             SSN:
-            <br />
             <input
               className="patient-ssn-input input"
               type="text"
@@ -114,72 +116,81 @@ function PatientInfo() {
               value={patientInfo.SSN}
               onChange={handleInputChange}
             />
-          </div>
+          </label>
         </header>
       </form>
 
       <h1 className="h1-patient-med">PATIENT MEDICAL INFORMATION</h1>
+      <div className="second-card-info-container">
+        <form>
+          <main className="second-card-info">
+            <label className="patient-symptoms">
+              <textarea
+                name="symptoms"
+                value={patientInfo.symptoms}
+                onChange={handleInputChange}
+                placeholder="Enter patient symptoms..."
+                onClick={() => {
+                  AddDateOnClick();
+                }}
+              />
+            </label>
 
-      <form>
-        <main className="second-card-info">
-          <div className="patient-symptoms">
-            SYMPTOMS:
-            <textarea
-              name="symptoms"
-              value={patientInfo.symptoms}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="patient-allergies">
-            ALLERGIES:
-            <textarea
-              name="allergies"
-              value={patientInfo.allergies}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="patient-disease-history">
-            DISEASE HISTORY:
-            <textarea
-              name="diseasehistory"
-              value={patientInfo.diseasehistory}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="patient-medications">
-            MEDICATIONS:
-            <textarea
-              name="medications"
-              value={patientInfo.medications}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="patient-diagnosis">
-            DIAGNOSIS:
-            <textarea
-              name="diagnosis"
-              value={patientInfo.diagnosis}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="patient-other">
-            OTHER:
-            <br />
-            <textarea
-              name="other"
-              value={patientInfo.other}
-              onChange={handleInputChange}
-            />
-          </div>
-        </main>
-      </form>
+            <label className="patient-allergies">
+              <textarea
+                name="allergies"
+                value={patientInfo.allergies}
+                onChange={handleInputChange}
+                placeholder="Enter known allergies..."
+              />
+            </label>
 
-      <button className="update-btn" onClick={handleUpdate}>
-        UPDATE
-      </button>
-      <button className="delete-btn" onClick={handleDelete}>
-        DELETE
-      </button>
+            <label className="patient-disease-history">
+              <textarea
+                name="diseasehistory"
+                value={patientInfo.diseasehistory}
+                onChange={handleInputChange}
+                placeholder="Enter disease history..."
+              />
+            </label>
+
+            <label className="patient-medications">
+              <textarea
+                name="medications"
+                value={patientInfo.medications}
+                onChange={handleInputChange}
+                placeholder="Enter current medications..."
+              />
+            </label>
+
+            <label className="patient-diagnosis">
+              <textarea
+                name="diagnosis"
+                value={patientInfo.diagnosis}
+                onChange={handleInputChange}
+                placeholder="Enter diagnosis..."
+              />
+            </label>
+
+            <label className="patient-other">
+              <textarea
+                name="other"
+                value={patientInfo.other}
+                onChange={handleInputChange}
+                placeholder="Enter additional information..."
+              />
+            </label>
+          </main>
+        </form>
+      </div>
+      <div className="button-container">
+        <button className="update-btn" onClick={handleUpdate}>
+          UPDATE
+        </button>
+        <button className="delete-btn" onClick={handleDelete}>
+          DELETE
+        </button>
+      </div>
 
       <ToastContainer />
     </div>

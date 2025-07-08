@@ -12,7 +12,7 @@ const SearchPatient = () => {
   const navigate = useNavigate();
 
   const handleSearch = async () => {
-    if (ssn) {
+    if (ssn.trim()) {
       try {
         const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
         if (res.data) {
@@ -51,16 +51,19 @@ const SearchPatient = () => {
 
   return (
     <div className='body'>
-      <search>
+      <section className='search-section'>
       <input
         type="text"
         placeholder="Search SSN..."
         value={ssn}
         onChange={(e) => setSsn(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {handleSearch() } // Trigger search on Enter key
+        }}
       />
       <button className='searchBtn' onClick={handleSearch}>Search</button>
       <button className='newpatientBtn' onClick={NewPatient}>+New Patient</button>
-      </search>
+      </section>
       <main>
       {patient && (
         <div>
