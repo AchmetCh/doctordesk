@@ -1,7 +1,7 @@
 .body {
   background-color: rgb(249, 250, 245);
 }
- search {
+ .search-section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
