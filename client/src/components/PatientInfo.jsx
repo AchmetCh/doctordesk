@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../../src/components/PatientInfo.css";
+import api from "../Api"; // Adjust the import path as necessary
 
 function PatientInfo() {
   const navigate = useNavigate();
@@ -19,14 +20,13 @@ function PatientInfo() {
     diagnosis: "",
     other: "",
   });
-  const apiUrl = "http://localhost:8000";
-  const apiOnline = "https://doctordesk.onrender.com";
+
   const ToastSuccessful = () => toast("Update Successful!");
   const DeleteSuccessful = () => toast("Delete Successful!");
   useEffect(() => {
     const fetchPatientInfo = async () => {
       try {
-        const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
+        const res = await axios.get(`${api}/api/search/${ssn}`);
         setPatientInfo(res.data);
       } catch (error) {
         console.log("Patient not found");
@@ -64,7 +64,7 @@ function PatientInfo() {
   const handleDelete = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(`${apiOnline}/api/delete/${patientInfo.SSN}`);
+      await axios.delete(`${api}/api/delete/${patientInfo.SSN}`);
       console.log("Patient info delete successfully");
       DeleteSuccessful();
       setTimeout(() => {

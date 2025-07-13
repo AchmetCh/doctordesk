@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './searchpatient.css';
+import api from '../Api'; // Adjust the import path as necessary
 
 const SearchPatient = () => {
   const [ssn, setSsn] = useState('');
   const [patient, setPatient] = useState(null);
   const [allPatients, setAllPatients] = useState([]);
-  const apiUrl = 'http://localhost:8000';
-  const apiOnline = 'https://doctordesk.onrender.com'
   const navigate = useNavigate();
 
   const handleSearch = async () => {
     if (ssn.trim()) {
       try {
-        const res = await axios.get(`${apiOnline}/api/search/${ssn}`);
+        const res = await axios.get(`${api}/api/search/${ssn}`);
         if (res.data) {
           setPatient(res.data);
           navigate(`/patient/${ssn}`);
@@ -37,7 +36,7 @@ const SearchPatient = () => {
 
   const fetchAllPatients = async () => {
     try {
-      const res = await axios.get(`${apiOnline}/api/patient`);
+      const res = await axios.get(`${api}/api/patient`);
       setAllPatients(res.data);
     } catch (error) {
       console.error('Error fetching patients:', error);
