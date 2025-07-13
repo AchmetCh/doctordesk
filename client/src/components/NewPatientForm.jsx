@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './NavBar';
 import './NewPatientForm.css';
+import api from '../Api';
 
 const NewPatientForm = () => {
   const [formData, setFormData] = useState({
@@ -37,15 +38,14 @@ const NewPatientForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const apiUrl = 'http://localhost:8000';
-  const apiOnline = 'https://doctordesk.onrender.com';
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
     try {
-      const response = await axios.post(`${apiOnline}/api/create`, formData);
+      const response = await axios.post(`${api}/api/create`, formData);
       if (response.status === 201) {
         ToastSuccessful();
         setTimeout(() => navigate('/searchPatient'), 2000);

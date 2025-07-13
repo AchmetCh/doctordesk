@@ -4,6 +4,7 @@ import { useNavigate, Outlet } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
+import api from "../Api"; // Adjust the import path as necessary
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const apiUrl = "https://doctordesk.onrender.com";
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +26,7 @@ const Login = () => {
     const credentials = { username: username.trim(), password };
 
     try {
-      const response = await axios.post(`${apiUrl}/api/login`, credentials);
+      const response = await axios.post(`${api}/api/login`, credentials);
       
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
